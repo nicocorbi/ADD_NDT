@@ -151,4 +151,95 @@ public class MyClass {
   }
 }
 ```
+### Ejercicio 6
 
+```java
+
+ public static void main(String args[]) {
+    
+    File cine = new File ("P1/cine_granada")
+    String [] archivos = cine.list();
+System.out.println("Archivos creados hasta ahora:")
+if (archivos != null){
+for (String.nombre)
+   }
+   
+ }
+
+```
+### Ejercicio 7
+```java 
+import java.io.File;
+
+public class MyClass {
+  public static void main(String[] args) {
+    
+    String[] dias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+    for (String dia : dias) {
+        File archivo = new File("P1/"+dia+"/sesiones.txt");
+        archivo.createNewFile();
+   }
+   
+ }
+}
+```
+### Ejercicio 8
+```java
+import java.io.File;
+
+public class MyClass {
+  public static void main(String[] args) {
+    
+    String[] dias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+    for (String dia : dias) {
+        File dir = new File("P1/"+dia);
+        if (!dir.exists()){
+            dir.mkdir();
+            System.out.println("Se ha creado el directorio con ruta absoluta:"+ dir.getAbsolutePath());
+        }
+        File archivo = new File("P1/"+dia+"/sesiones.txt");
+        archivo.createNewFile();
+        FileOutputStream output = new FileOutputStream("P1/Lunes/sesiones.txt");
+        String cadena = "Spiderman (2002): 18:00 - 20:07";
+        byte[] arrayBytes= cadena.getBytes();
+        output.write(arrayByte);
+        output.close();
+   }
+ }
+}
+```
+### Ejercicio 9
+
+```java
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class MyClass {
+  public static void main(String[] args) {
+    
+    String[] dias = {"Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
+    for (String dia : dias) {
+        File dir = new File("P1/"+dia);
+        if (!dir.exists()){
+            dir.mkdir();
+            System.out.println("Se ha creado el directorio con ruta absoluta:"+ dir.getAbsolutePath());
+        }
+        File archivo = new File("P1/"+dia+"/sesiones.txt");
+        archivo.createNewFile();
+        FileOutputStream output = new FileOutputStream(archivo);
+        String cadena = "Spiderman (2002): 18:00 - 20:07";
+        output.write(cadena.getBytes());
+        output.close();
+        
+        FileInputStream input = new FileInputStream(archivo);
+        
+        int i;
+        
+        while((i = input.read()) != -1 ){
+            System.out.print((char) i);
+        }
+   }
+ }
+}
+```
