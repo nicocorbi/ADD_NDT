@@ -153,6 +153,7 @@ public class MyClass {
 ```
 ### Ejercicio 6
 
+
 ```java
 
  public static void main(String args[]) {
@@ -168,6 +169,8 @@ for (String.nombre)
 
 ```
 ### Ejercicio 7
+
+
 ```java 
 import java.io.File;
 
@@ -243,3 +246,42 @@ public class MyClass {
  }
 }
 ```
+### Ejercicio 10
+
+
+```java
+package com.nicolas.ejercicioaccesoadatos;
+
+import java.io.File;
+import java.io.RandomAccessFile;
+
+public class EjercicioAccesoaDatos {
+    public static void main(String[] args) {
+        try {
+            File archivo = new File("P1/Miércoles/sesiones.txt");
+            RandomAccessFile raf = new RandomAccessFile(archivo, "rws");
+            String textoInicial = "Titanic (1998): 17:00 - 20:15";
+            raf.write(textoInicial.getBytes());
+
+            raf.seek(9); 
+            raf.write("1997".getBytes());
+
+            raf.seek(0); 
+            StringBuilder contenido = new StringBuilder();
+            int i;
+            while ((i = raf.read()) != -1) {
+                contenido.append((char) i);
+            }
+            raf.close();
+
+            System.out.println("Contenido del archivo:");
+            System.out.println(contenido.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+
+
