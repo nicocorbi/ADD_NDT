@@ -168,6 +168,10 @@ for (String.nombre)
  }
 
 ```
+crea un nuevo objeto o file 
+crea una lista de tipo string llamada archivos
+en caso de que dicho archivo se cree ps imprimos eso
+
 ### Ejercicio 7
 
 
@@ -186,6 +190,9 @@ public class MyClass {
  }
 }
 ```
+Crea un objeto File que representa el archivo sesiones.txt dentro de la carpeta P1/dia
+Crea el archivo físico en el disco si no existe.
+Si el archivo ya existe, no lo sobrescribe.
 ### Ejercicio 8
 ```java
 import java.io.File;
@@ -204,7 +211,7 @@ public class MyClass {
         archivo.createNewFile();
         FileOutputStream output = new FileOutputStream("P1/Lunes/sesiones.txt");
         String cadena = "Spiderman (2002): 18:00 - 20:07";
-        byte[] arrayBytes= cadena.getBytes();
+        byte[] arrayBytes= cadena.getBytes();    //Convierte el texto en un array de bytes, que es lo que FileOutputStream necesita para escribir.
         output.write(arrayByte);
         output.close();
    }
@@ -212,7 +219,11 @@ public class MyClass {
 }
 ```
 ### Ejercicio 9
+File: para manejar carpetas y archivos.
 
+FileOutputStream: para escribir en archivos.
+
+FileInputStream: para leer archivos.
 ```java
 import java.io.File;
 import java.io.FileInputStream;
@@ -230,7 +241,7 @@ public class MyClass {
         }
         File archivo = new File("P1/"+dia+"/sesiones.txt");
         archivo.createNewFile();
-        FileOutputStream output = new FileOutputStream(archivo);
+        FileOutputStream output = new FileOutputStream(archivo);//Abre un flujo de escritura hacia el archivo.
         String cadena = "Spiderman (2002): 18:00 - 20:07";
         output.write(cadena.getBytes());
         output.close();
@@ -239,8 +250,8 @@ public class MyClass {
         
         int i;
         
-        while((i = input.read()) != -1 ){
-            System.out.print((char) i);
+        while((i = input.read()) != -1 ){//Lee byte por byte hasta el final (-1).
+            System.out.print((char) i);//Convierte cada byte a carácter y lo imprime.
         }
    }
  }
@@ -260,28 +271,31 @@ public class EjercicioAccesoaDatos {
         try {
             File archivo = new File("P1/Miércoles/sesiones.txt");
             RandomAccessFile raf = new RandomAccessFile(archivo, "rws");
-            String textoInicial = "Titanic (1998): 17:00 - 20:15";
+            String textoInicial = "Titanic (1998): 17:00 - 20:15";//Convierte el texto a bytes y lo escribe desde el inicio del archivo.
             raf.write(textoInicial.getBytes());
 
             raf.seek(9); 
             raf.write("1997".getBytes());
 
             raf.seek(0); 
-            StringBuilder contenido = new StringBuilder();
+            StringBuilder contenido = new StringBuilder();// Es una clase que permite construir cadenas de texto de forma eficiente
             int i;
-            while ((i = raf.read()) != -1) {
-                contenido.append((char) i);
+            while ((i = raf.read()) != -1) {// Lee un byte del archivo.
+                contenido.append((char) i);// Convierte ese byte en un carácter.
             }
             raf.close();
 
-            System.out.println("Contenido del archivo:");
+            System.out.println("Contenido del archivo:");// Imprime el contenido modificado.
             System.out.println(contenido.toString());
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace();// Imprime el error completo en consola
         }
     }
 }
-```
 
+```
+r: lectura
+w: escritura
+s: sincroniza cambios en disco
 
 
