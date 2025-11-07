@@ -36,10 +36,91 @@ pasers de ficherps XML javax.xml.parents
 
 codigo de ejemplo de pasador dom:
 ```java
+public class EjemploDOM {
+    public static void main(String[] args) {
+        try {
+            // Crear una instancia del parser DOM
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
 
+            // Cargar el archivo XML
+            Document doc = builder.parse(new File("productos.xml"));
+            doc.getDocumentElement().normalize();
+
+            // Obtener todos los elementos <producto>
+            NodeList lista = doc.getElementsByTagName("producto");
+
+            // Recorrer y mostrar la información
+            for (int i = 0; i < lista.getLength(); i++) {
+                Node nodo = lista.item(i);
+
+                if (nodo.getNodeType() == Node.ELEMENT_NODE) {
+                    Element elemento = (Element) nodo;
+                    String nombre = elemento.getElementsByTagName("nombre").item(0).getTextContent();
+                    String categoria = elemento.getElementsByTagName("categoria").item(0).getTextContent();
+                    String precio = elemento.getElementsByTagName("precio").item(0).getTextContent();
+
+                    System.out.println("Producto: " + nombre);
+                    System.out.println("Categoría: " + categoria);
+                    System.out.println("Precio: " + precio);
+                    System.out.println("-----------------------");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 ```
 codigo de paseador de tipo sax:
 ```java
+public class EjemploSAX {
+    public static void main(String[] args) {
+        try {
+            // Crear una fábrica y un parser SAX
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser saxParser = factory.newSAXParser();
 
+            // Crear un manejador personalizado
+            DefaultHandler handler = new DefaultHandler() {
+                boolean nombre = false;
+                boolean categoria = false;
+                boolean precio = false;
+
+                @Override
+                public void startElement(String uri, String localName, String qName, Attributes attributes) {
+                    if (qName.equalsIgnoreCase("nombre")) nombre = true;
+                    if (qName.equalsIgnoreCase("categoria")) categoria = true;
+                    if (qName.equalsIgnoreCase("precio")) precio = true;
+                }
+
+                @Override
+                public void characters(char[] ch, int start, int length) {
+                    String contenido = new String(ch, start, length).trim();
+                    if (nombre) {
+                        System.out.println("Nombre: " + contenido);
+                        nombre = false;
+                    } else if (categoria) {
+                        System.out.println("Categoría: " + contenido);
+                        categoria = false;
+                    } else if (precio) {
+                        System.out.println("Precio: " + contenido);
+                        precio = false;
+                    }
+                }
+
+                @Override
+                public void endElement(String uri, String localName, String qName) {
+                    if (qName.equalsIgnoreCase("producto")) {
+                        System.out.println("-----------------------");
+                    }
+                }
+            };
+
+            // Procesar el XML
+            saxParser.parse(new File("productos.xml"), handler);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
-## 
