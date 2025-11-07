@@ -1,6 +1,6 @@
 # EJERCICIOS
 ## ejercicio parte 1
-
+Parte 1. Crear un parseador DOM:
 ```java
 package com.nicolas.practicatema3;
 
@@ -31,6 +31,7 @@ public class PracticaTema3 {
 }
 ```
 ## ejercicio parte 2
+Parte 2. Procesamiento de un fichero XML haciendo uso de un parseador DOM:
 ```java 
 public class PracticaTema3 {
 
