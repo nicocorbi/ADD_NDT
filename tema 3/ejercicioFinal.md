@@ -248,3 +248,30 @@ public class GestorProductosXML {
     }
 }
 ```
+// productos.xml
+<productos>
+    <producto id="P1">
+        <nombre>Portátil Lenovo</nombre>
+        <categoria>INF</categoria>
+        <precio>799.99</precio>
+        <stock>15</stock>
+    </producto>
+    <producto id="P2">
+        <nombre>Ratón Logitech</nombre>
+        <categoria>PER</categoria>
+        <precio>25.50</precio>
+        <stock>50</stock>
+    </producto>
+    <producto id="P3">
+        <nombre>Monitor Samsung</nombre>
+        <categoria>INF</categoria>
+        <precio>199.99</precio>
+        <stock>30</stock>
+    </producto>
+    <producto id="P4">
+        <nombre>Teclado Razer</nombre>
+        <categoria>GAM</categoria>
+        <precio>99.99</precio>
+        <stock>10</stock>
+    </producto>
+</productos>
