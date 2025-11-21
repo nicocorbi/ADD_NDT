@@ -37,6 +37,3 @@ postgreSQL->BBDD y usuario ==> DB.EAVER
 
 <img width="1920" height="1200" alt="Captura de pantalla 2025-11-14 103329" src="https://github.com/user-attachments/assets/e7f65eee-a834-4e25-ac86-746fe0c01906" />
 
-<img width="1920" height="1200" alt="Captura de pantalla 2025-11-14 182153" src="https://github.com/user-attachments/assets/c7e3703f-3e6d-489e-804b-7759525bf8d4" />
-
-<img width="1920" height="1200" alt="Captura de pantalla 2025-11-14 182752" src="https://github.com/user-attachments/assets/9d89dc0f-2b1b-42b7-bc67-a750c9b9c166" />
