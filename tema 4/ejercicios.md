@@ -101,3 +101,4 @@ public class Tema4_ADD {
     }
 }
 ```
+![Captura de pantalla del 2025-12-02 a las 13:55:26](Captura de pantalla 2025-12-02 135526.png)
