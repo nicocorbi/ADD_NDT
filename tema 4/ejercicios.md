@@ -101,4 +101,4 @@ public class Tema4_ADD {
     }
 }
 ```
-![Captura de pantalla del 2025-12-02 a las 13:55:26](Captura de pantalla 2025-12-02 135526.png)
+<img width="1920" height="1200" alt="Captura de pantalla 2025-12-02 135526" src="https://github.com/user-attachments/assets/41e2633d-7945-44d9-ad9e-1c7014da7501" />
