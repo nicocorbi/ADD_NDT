@@ -639,7 +639,12 @@ public class JugadorDAO {
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
+        }<img width="1920" height="1200" alt="Captura de pantalla 2025-11-25 134105" src="https://github.com/user-attachments/assets/02b11241-e7cf-4e4b-a8df-be6206c1bc47" />
+<img width="1920" height="1200" alt="Captura de pantalla 2025-12-02 131316" src="https://github.com/user-attachments/assets/fd5279ec-8da1-4f3d-91bb-60e1dc29af21" />
+<img width="1920" height="1200" alt="Captura de pantalla 2025-12-02 131259" src="https://github.com/user-attachments/assets/c296d099-b8a7-4d75-b2d5-29f65547e528" />
+<img width="1920" height="1200" alt="Captura de pantalla 2025-11-28 091945" src="https://github.com/user-attachments/assets/f53e6ca3-37ba-4d58-a4f8-9660a2ad44fc" />
+<img width="1920" height="1200" alt="Captura de pantalla 2025-11-25 134115" src="https://github.com/user-attachments/assets/e7090c9b-9477-4145-a857-f873c3fa04d2" />
+
     }
 }
 ```
