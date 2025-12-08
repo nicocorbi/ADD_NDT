@@ -5,6 +5,7 @@ nos metemos en editar variables de entorno y en la tabla de administrador buscam
 le damos a nuevo y añadimos la ruta donde tenemos instalado SPQL , normalmente se usa C:\Program Files\PostgreSQL\18\bin
 aceptamos todo y cerranos terminal
 nos metemos en terminal shell y ahi creamos nuestro usuario y contraseña
+donde descargar postgre: https://jdbc.postgresql.org/download/
 
 
 ![WhatsApp Image 2025-12-08 at 10 28 25 (1)](https://github.com/user-attachments/assets/f283201c-bba0-440f-b8c8-a62814b06abe)
