@@ -100,3 +100,10 @@ public class AgregarColumnaJugador {
     }
 }
 ```
+ejemplo de conexion a traves de un xml que nos ayuda a cambiar si queremos 
+<config>
+<driver>org.postgresql.Driver</driver>
+<url>jdbc:postgresql://localhost:5433/bloodbown</url>
+<user>postgres</user>
+<password>admin</password>
+</config>
