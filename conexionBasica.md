@@ -1,5 +1,6 @@
 ## conexion base de datos de neatbeans a dbeaver
 ## creamos una java class llamada conexion
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -38,7 +39,9 @@ public class Conexion {
         }
     }
 }
+```
 ## ponemos esto en el main 
+```java
 public class prueba1 {
 
     /**
@@ -50,7 +53,9 @@ public class prueba1 {
     }
     
 }
+```
 ## ejemplo basico de mandar informacion desde dbaver a la base de datos
+```java
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -71,8 +76,10 @@ public class InsertarJugador {
         }
     }
 }
+```
 
 ## ejemplo basico de creacion de una nueva columna desde neatbeans
+```java
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.SQLException;
@@ -92,3 +99,4 @@ public class AgregarColumnaJugador {
         }
     }
 }
+```
