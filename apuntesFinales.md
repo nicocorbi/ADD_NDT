@@ -263,6 +263,7 @@ try (FileWriter w = new FileWriter("archivo.txt")) {
 } catch (IOException e) {
     e.printStackTrace();
 }
+edad INT
 
 <config>
 <driver>org.postgresql.Driver</driver>
