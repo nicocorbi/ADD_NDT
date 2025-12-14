@@ -263,3 +263,10 @@ try (FileWriter w = new FileWriter("archivo.txt")) {
 } catch (IOException e) {
     e.printStackTrace();
 }
+
+<config>
+<driver>org.postgresql.Driver</driver>
+<url>jdbc:postgresql://localhost:5433/bloodbown</url>
+<user>postgres</user>
+<password>admin</password>
+</config>
