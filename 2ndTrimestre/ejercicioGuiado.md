@@ -183,7 +183,14 @@ La aplicación permite:
 * Crear pedidos
 * Visualizar pedidos
 
+
 Todo ello usando **Java Swing**, **H2** y **CardLayout**.
 
 ---
+
+
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-09 091100" src="https://github.com/user-attachments/assets/56f1e5a5-d2a9-426b-82d3-08f1e98bd1cc" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-09 092405" src="https://github.com/user-attachments/assets/2d275487-d785-4ada-b0c9-dc3b4a573d60" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-16 090634" src="https://github.com/user-attachments/assets/672e0ab7-a619-43e2-b8e6-da367924aa86" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-16 085507" src="https://github.com/user-attachments/assets/a0cf4085-79b6-431b-b202-e2f535b69050" />
 
