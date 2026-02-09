@@ -95,5 +95,17 @@ Para ejecutar:
 Click derecho sobre el proyecto
 
 Run As
+Spring Boot App<img width="1920" height="1200" alt="Captura de pantalla 2026-02-09 181040" src="https://github.com/user-attachments/assets/28bf6c07-9dce-4fb6-af2b-781a599d2392" />
 
-Spring Boot App
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-30 090836" src="https://github.com/user-attachments/assets/cc498d89-1fd6-425d-98f0-9ae57b512b1a" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-30 085504" src="https://github.com/user-attachments/assets/40c2468f-6d9b-4e93-aa46-62728bc48692" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-30 092913" src="https://github.com/user-attachments/assets/c31e40f3-5cb3-4c72-bb9d-2c7ce05f37c6" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-01-30 092522" src="https://github.com/user-attachments/assets/4b2e5cc8-d329-4982-9dab-0feb8ab29b0a" />
+<img width="1260" height="743" alt="Captura de pantalla 2026-01-30 091829" src="https://github.com/user-attachments/assets/ca576876-f608-4546-9d9c-39e506489132" />
+<img width="841" height="785" alt="Captura de pantalla 2026-01-30 091049" src="https://github.com/user-attachments/assets/984cab24-8cc3-45ee-acad-9b40100465f2" />
+
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-09 181148" src="https://github.com/user-attachments/assets/d7865ec8-85cb-4cf1-b041-cf3623438576" />
+
+
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-09 180955" src="https://github.com/user-attachments/assets/ad8bc4a5-d5db-48ac-b8e3-430520e9cbdf" />
+
