@@ -1,0 +1,14 @@
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 132317" src="https://github.com/user-attachments/assets/e4f82e31-98eb-4b9a-95b4-5f009278ec54" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 131754" src="https://github.com/user-attachments/assets/b5bcf62e-7d1f-4960-b6f7-525f458fecfc" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 131748" src="https://github.com/user-attachments/assets/5c70618a-9b81-457c-b647-4b5b58d17aea" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134818" src="https://github.com/user-attachments/assets/dfd87112-bcab-4a03-a515-ed4e9fb644c3" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134807" src="https://github.com/user-attachments/assets/21f00256-ae52-4904-ab3d-7b6b40f9b33c" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134251" src="https://github.com/user-attachments/assets/9aab19b1-3068-40fb-9b51-208b5869011a" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134246" src="https://github.com/user-attachments/assets/9f08e0aa-b2b1-4082-87b7-0a64167e0b6d" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134237" src="https://github.com/user-attachments/assets/0abff447-5e87-47b8-91bd-87837fa3be9e" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 134027" src="https://github.com/user-attachments/assets/60eba0ea-30cb-4788-852a-f79e5476d620" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 133755" src="https://github.com/user-attachments/assets/398bea0d-3d2b-4a5a-b611-5a163c790343" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 133416" src="https://github.com/user-attachments/assets/78ed380b-8caf-4716-b6e2-0883953de490" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 133207" src="https://github.com/user-attachments/assets/ca7a7604-b5c3-4f6c-b44f-47d62b1a226f" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 133003" src="https://github.com/user-attachments/assets/4b0f0748-32fb-485c-b273-a0915233f95e" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-02-24 132929" src="https://github.com/user-attachments/assets/91b3f77d-5854-447a-9924-faf489ebfbce" />
