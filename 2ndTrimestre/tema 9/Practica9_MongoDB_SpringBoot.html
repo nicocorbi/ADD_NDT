@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Práctica 9 – MongoDB Atlas + SpringBoot</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #1e1e2e; color: #cdd6f4; padding: 30px; }
+  h1 { color: #89b4fa; font-size: 2rem; margin-bottom: 6px; }
+  .subtitle { color: #a6e3a1; margin-bottom: 30px; font-size: 0.95rem; }
+  h2 { color: #fab387; font-size: 1.2rem; margin: 28px 0 8px; border-left: 4px solid #fab387; padding-left: 10px; }
+  h3 { color: #f5c2e7; font-size: 1rem; margin: 18px 0 6px; }
+  p, li { font-size: 0.9rem; line-height: 1.6; color: #bac2de; }
+  ul { padding-left: 20px; margin: 6px 0; }
+  .note { background: #313244; border-left: 4px solid #f38ba8; padding: 10px 14px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem; color: #f38ba8; }
+  .info { background: #313244; border-left: 4px solid #89dceb; padding: 10px 14px; border-radius: 6px; margin: 10px 0; font-size: 0.85rem; color: #89dceb; }
+  .code-block { position: relative; background: #11111b; border: 1px solid #45475a; border-radius: 8px; margin: 10px 0; }
+  .code-header { display: flex; justify-content: space-between; align-items: center; padding: 6px 14px; background: #181825; border-radius: 8px 8px 0 0; border-bottom: 1px solid #45475a; }
+  .lang-tag { color: #a6e3a1; font-size: 0.75rem; font-family: monospace; }
+  .copy-btn { background: #45475a; color: #cdd6f4; border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; transition: background 0.2s; }
+  .copy-btn:hover { background: #89b4fa; color: #1e1e2e; }
+  pre { padding: 16px; overflow-x: auto; font-family: 'Fira Code', 'Consolas', monospace; font-size: 0.82rem; line-height: 1.7; }
+  code { color: #cdd6f4; }
+  .kw { color: #cba6f7; }
+  .str { color: #a6e3a1; }
+  .cm { color: #6c7086; font-style: italic; }
+  .an { color: #f5c2e7; }
+  .num { color: #fab387; }
+  .type { color: #89dceb; }
+  section { background: #181825; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; border: 1px solid #313244; }
+  .step-badge { display: inline-block; background: #89b4fa; color: #1e1e2e; font-weight: bold; font-size: 0.75rem; padding: 2px 10px; border-radius: 20px; margin-bottom: 10px; }
+  .file-path { font-family: monospace; font-size: 0.78rem; color: #f9e2af; background: #313244; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<h1>📘 Práctica 9 – MongoDB Atlas + SpringBoot</h1>
+<div class="subtitle">Acceso a Datos · NDT Campus Granada · Todo listo para copiar y pegar en VS Code / Eclipse</div>
+
+<!-- PARTE 6 – pom.xml -->
+<section>
+  <div class="step-badge">PARTE 6 – Proyecto Spring</div>
+  <h2>pom.xml – Dependencias necesarias</h2>
+  <div class="info">Crea el proyecto en <strong>https://start.spring.io/</strong> con: Maven · Java · nombre <code>practica12_13_14</code>. Añade las dependencias <em>Spring Web</em> y <em>Spring Data MongoDB</em>.</div>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">XML · pom.xml</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code><span class="cm">&lt;!-- Estas dependencias las genera start.spring.io automáticamente --&gt;</span>
+&lt;<span class="kw">dependency</span>&gt;
+    &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;
+    &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-web&lt;/<span class="kw">artifactId</span>&gt;
+&lt;/<span class="kw">dependency</span>&gt;
+
+&lt;<span class="kw">dependency</span>&gt;
+    &lt;<span class="kw">groupId</span>&gt;org.springframework.boot&lt;/<span class="kw">groupId</span>&gt;
+    &lt;<span class="kw">artifactId</span>&gt;spring-boot-starter-data-mongodb&lt;/<span class="kw">artifactId</span>&gt;
+&lt;/<span class="kw">dependency</span>&gt;</code></pre>
+  </div>
+</section>
+
+<!-- PARTE 7 – application.properties -->
+<section>
+  <div class="step-badge">PARTE 7 – Conexión Atlas</div>
+  <h2>application.properties</h2>
+  <div class="note">⚠ Sustituye &lt;usuario&gt;, &lt;contraseña&gt; y &lt;cluster&gt; por tus datos reales de MongoDB Atlas. El nombre de la base de datos es <strong>AccesoADatosDB</strong>.</div>
+  <div class="file-path">src/main/resources/application.properties</div>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">properties</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code>spring.data.mongodb.uri=mongodb+srv://&lt;usuario&gt;:&lt;contraseña&gt;@&lt;cluster&gt;.mongodb.net/AccesoADatosDB?retryWrites=true&w=majority</code></pre>
+  </div>
+  <p style="margin-top:8px;">Ejemplo real con usuario <em>admin</em>:</p>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">properties</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code>spring.data.mongodb.uri=mongodb+srv://admin:miPassword123@accesoadatos.abc12.mongodb.net/AccesoADatosDB?retryWrites=true&w=majority</code></pre>
+  </div>
+</section>
+
+<!-- PARTE 8 – Modelo Transaction -->
+<section>
+  <div class="step-badge">PARTE 8 – Modelo de datos</div>
+  <h2>Transaction.java</h2>
+  <div class="file-path">src/main/java/com/example/practica12_13_14/Transaction.java</div>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">Java</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code><span class="kw">package</span> com.example.practica12_13_14;
+
+<span class="kw">import</span> org.springframework.data.annotation.Id;
+<span class="kw">import</span> org.springframework.data.mongodb.core.mapping.Document;
+<span class="kw">import</span> java.util.Date;
+
+<span class="an">@Document</span>(collection = <span class="str">"AccesoADatosCollection"</span>)
+<span class="kw">public class</span> <span class="type">Transaction</span> {
+
+    <span class="an">@Id</span>
+    <span class="kw">private</span> <span class="type">String</span> id;
+    <span class="kw">private</span> <span class="type">String</span> description;
+    <span class="kw">private</span> <span class="type">double</span> quantity;
+    <span class="kw">private</span> <span class="type">boolean</span> income;
+    <span class="kw">private</span> <span class="type">Date</span> date;
+
+    <span class="cm">// Constructor con parámetros</span>
+    <span class="kw">public</span> <span class="type">Transaction</span>(<span class="type">String</span> description, <span class="type">double</span> quantity, <span class="type">boolean</span> income, <span class="type">Date</span> date) {
+        <span class="kw">this</span>.description = description;
+        <span class="kw">this</span>.quantity   = quantity;
+        <span class="kw">this</span>.income      = income;
+        <span class="kw">this</span>.date        = date;
+    }
+
+    <span class="cm">// Getters</span>
+    <span class="kw">public</span> <span class="type">String</span>  getId()          { <span class="kw">return</span> id; }
+    <span class="kw">public</span> <span class="type">String</span>  getDescription() { <span class="kw">return</span> description; }
+    <span class="kw">public</span> <span class="type">double</span>  getQuantity()    { <span class="kw">return</span> quantity; }
+    <span class="kw">public</span> <span class="type">boolean</span> isIncome()       { <span class="kw">return</span> income; }
+    <span class="kw">public</span> <span class="type">Date</span>    getDate()        { <span class="kw">return</span> date; }
+
+    <span class="cm">// Setters</span>
+    <span class="kw">public void</span> setId         (<span class="type">String</span>  id)          { <span class="kw">this</span>.id          = id; }
+    <span class="kw">public void</span> setDescription(<span class="type">String</span>  description) { <span class="kw">this</span>.description = description; }
+    <span class="kw">public void</span> setQuantity   (<span class="type">double</span>  quantity)    { <span class="kw">this</span>.quantity    = quantity; }
+    <span class="kw">public void</span> setIncome     (<span class="type">boolean</span> income)      { <span class="kw">this</span>.income      = income; }
+    <span class="kw">public void</span> setDate       (<span class="type">Date</span>    date)        { <span class="kw">this</span>.date        = date; }
+
+    <span class="an">@Override</span>
+    <span class="kw">public</span> <span class="type">String</span> toString() {
+        <span class="kw">return</span> <span class="str">"Transaction{"</span> +
+               <span class="str">"id='"</span>          + id          + <span class="str">"'"</span> +
+               <span class="str">", description='"</span> + description + <span class="str">"'"</span> +
+               <span class="str">", quantity="</span>   + quantity    +
+               <span class="str">", income="</span>     + income      +
+               <span class="str">", date="</span>       + date        +
+               <span class="str">'}'</span>;
+    }
+}</code></pre>
+  </div>
+</section>
+
+<!-- PARTE 9 – Repositorio -->
+<section>
+  <div class="step-badge">PARTE 9 – Repositorio</div>
+  <h2>TransactionRepository.java</h2>
+  <div class="file-path">src/main/java/com/example/practica12_13_14/TransactionRepository.java</div>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">Java</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code><span class="kw">package</span> com.example.practica12_13_14;
+
+<span class="kw">import</span> org.springframework.data.mongodb.repository.MongoRepository;
+<span class="kw">import</span> org.springframework.data.mongodb.repository.Query;
+<span class="kw">import</span> java.util.Date;
+<span class="kw">import</span> java.util.List;
+
+<span class="kw">public interface</span> <span class="type">TransactionRepository</span> <span class="kw">extends</span> <span class="type">MongoRepository</span>&lt;<span class="type">Transaction</span>, <span class="type">String</span>&gt; {
+
+    <span class="cm">// Obtener los gastos (income = false)</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByIncomeFalse();
+
+    <span class="cm">// Obtener los ingresos (income = true)</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByIncomeTrue();
+
+    <span class="cm">// Transacciones del último mes (dateAfter)</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByDateAfter(<span class="type">Date</span> date);
+
+    <span class="cm">// Transacciones con valor superior a un valor</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByQuantityGreaterThan(<span class="type">double</span> quantity);
+
+    <span class="cm">// Transacciones con valor entre dos valores</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByQuantityBetween(<span class="type">double</span> min, <span class="type">double</span> max);
+
+    <span class="cm">// Gastos entre dos fechas</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByIncomeFalseAndDateBetween(<span class="type">Date</span> start, <span class="type">Date</span> end);
+
+    <span class="cm">// Gastos con cantidad menor a un valor dado</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByIncomeFalseAndQuantityLessThan(<span class="type">double</span> quantity);
+
+    <span class="cm">// Gastos con cantidad mayor a un valor dado</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByIncomeFalseAndQuantityGreaterThan(<span class="type">double</span> quantity);
+
+    <span class="cm">// Buscar por descripción que contenga texto (para la parte 10)</span>
+    <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; findByDescriptionContaining(<span class="type">String</span> text);
+}</code></pre>
+  </div>
+</section>
+
+<!-- PARTE 10 – Clase Main -->
+<section>
+  <div class="step-badge">PARTE 10 – Clase Main</div>
+  <h2>Practica121314Application.java</h2>
+  <div class="file-path">src/main/java/com/example/practica12_13_14/Practica121314Application.java</div>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">Java</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code><span class="kw">package</span> com.example.practica12_13_14;
+
+<span class="kw">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="kw">import</span> org.springframework.boot.CommandLineRunner;
+<span class="kw">import</span> org.springframework.boot.SpringApplication;
+<span class="kw">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span class="kw">import</span> java.util.Calendar;
+<span class="kw">import</span> java.util.Date;
+<span class="kw">import</span> java.util.List;
+
+<span class="an">@SpringBootApplication</span>
+<span class="kw">public class</span> <span class="type">Practica121314Application</span> <span class="kw">implements</span> <span class="type">CommandLineRunner</span> {
+
+    <span class="an">@Autowired</span>
+    <span class="kw">private</span> <span class="type">TransactionRepository</span> transactionRepository;
+
+    <span class="kw">public static void</span> main(<span class="type">String</span>[] args) {
+        <span class="type">SpringApplication</span>.run(<span class="type">Practica121314Application</span>.<span class="kw">class</span>, args);
+    }
+
+    <span class="an">@Override</span>
+    <span class="kw">public void</span> run(<span class="type">String</span>... args) <span class="kw">throws</span> <span class="type">Exception</span> {
+
+        <span class="cm">// ── 1. Borrar todos los datos ─────────────────────────────────────</span>
+        transactionRepository.deleteAll();
+        System.out.println(<span class="str">"=== Datos borrados ==="</span>);
+
+        <span class="cm">// ── 2. Insertar datos de prueba ───────────────────────────────────</span>
+        <span class="cm">// Helper para crear fechas fácilmente</span>
+        Calendar cal = Calendar.getInstance();
+
+        cal.set(<span class="num">2024</span>, Calendar.JANUARY, <span class="num">10</span>);
+        <span class="type">Date</span> fecha1 = cal.getTime();
+
+        cal.set(<span class="num">2024</span>, Calendar.FEBRUARY, <span class="num">5</span>);
+        <span class="type">Date</span> fecha2 = cal.getTime();
+
+        cal.set(<span class="num">2024</span>, Calendar.MARCH, <span class="num">20</span>);
+        <span class="type">Date</span> fecha3 = cal.getTime();
+
+        <span class="cm">// Fecha del mes actual (para probar últimoMes)</span>
+        cal.setTime(<span class="kw">new</span> Date());
+        cal.add(Calendar.DAY_OF_MONTH, -<span class="num">5</span>);
+        <span class="type">Date</span> fechaReciente = cal.getTime();
+
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Salario enero"</span>,       <span class="num">1500.00</span>, <span class="kw">true</span>,  fecha1));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Compra supermercado"</span>, <span class="num">80.50</span>,  <span class="kw">false</span>, fecha1));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Freelance web"</span>,       <span class="num">350.00</span>, <span class="kw">true</span>,  fecha2));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Compra ropa"</span>,         <span class="num">120.00</span>, <span class="kw">false</span>, fecha2));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Factura electricidad"</span>, <span class="num">55.30</span>, <span class="kw">false</span>, fecha3));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Compra online Amazon"</span>, <span class="num">200.00</span>, <span class="kw">false</span>, fecha3));
+        transactionRepository.save(<span class="kw">new</span> <span class="type">Transaction</span>(<span class="str">"Ingreso alquiler"</span>,    <span class="num">600.00</span>, <span class="kw">true</span>,  fechaReciente));
+
+        System.out.println(<span class="str">"=== Datos de prueba insertados ==="</span>);
+
+        <span class="cm">// ── 3. Consultas ─────────────────────────────────────────────────</span>
+
+        <span class="cm">// a) Todos los ingresos</span>
+        System.out.println(<span class="str">"\n--- INGRESOS ---"</span>);
+        <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; ingresos = transactionRepository.findByIncomeTrue();
+        ingresos.forEach(System.out::println);
+
+        <span class="cm">// b) Todos los gastos</span>
+        System.out.println(<span class="str">"\n--- GASTOS ---"</span>);
+        <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; gastos = transactionRepository.findByIncomeFalse();
+        gastos.forEach(System.out::println);
+
+        <span class="cm">// c) Transacciones entre dos fechas</span>
+        System.out.println(<span class="str">"\n--- TRANSACCIONES ENTRE ENE y FEB 2024 ---"</span>);
+        cal.set(<span class="num">2024</span>, Calendar.JANUARY, <span class="num">1</span>);
+        <span class="type">Date</span> inicio = cal.getTime();
+        cal.set(<span class="num">2024</span>, Calendar.FEBRUARY, <span class="num">28</span>);
+        <span class="type">Date</span> fin = cal.getTime();
+        <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; entresFechas = transactionRepository.findByIncomeFalseAndDateBetween(inicio, fin);
+        entresFechas.forEach(System.out::println);
+
+        <span class="cm">// d) Transacciones con "Compra" en la descripción</span>
+        System.out.println(<span class="str">"\n--- TRANSACCIONES CON 'Compra' EN DESCRIPCIÓN ---"</span>);
+        <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; compras = transactionRepository.findByDescriptionContaining(<span class="str">"Compra"</span>);
+        compras.forEach(System.out::println);
+
+        <span class="cm">// e) Transacciones con cantidad mayor a 100</span>
+        System.out.println(<span class="str">"\n--- TRANSACCIONES CON CANTIDAD > 100 ---"</span>);
+        <span class="type">List</span>&lt;<span class="type">Transaction</span>&gt; mayores = transactionRepository.findByQuantityGreaterThan(<span class="num">100.0</span>);
+        mayores.forEach(System.out::println);
+    }
+}</code></pre>
+  </div>
+</section>
+
+<!-- Estructura del proyecto -->
+<section>
+  <div class="step-badge">REFERENCIA RÁPIDA</div>
+  <h2>Estructura de archivos del proyecto</h2>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">Árbol de carpetas</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code>practica12_13_14/
+├── src/main/java/com/example/practica12_13_14/
+│   ├── Practica121314Application.java   ← Clase Main + CommandLineRunner
+│   ├── Transaction.java                 ← Modelo / Documento MongoDB
+│   └── TransactionRepository.java      ← Repositorio con métodos CRUD
+└── src/main/resources/
+    └── application.properties           ← Cadena de conexión Atlas</code></pre>
+  </div>
+
+  <h3 style="margin-top:16px;">Cadena de conexión – formato correcto</h3>
+  <div class="code-block">
+    <div class="code-header"><span class="lang-tag">properties</span><button class="copy-btn" onclick="copyCode(this)">Copiar</button></div>
+    <pre><code>mongodb+srv://&lt;usuario&gt;:&lt;contraseña&gt;@&lt;cluster&gt;.mongodb.net/AccesoADatosDB?retryWrites=true&w=majority</code></pre>
+  </div>
+  <div class="note">⚠ Si la app no arranca, comprueba que incluyes <strong>AccesoADatosDB</strong> entre la / y el ?. La cadena autogenerada por Atlas suele omitirlo.</div>
+</section>
+
+<script>
+function copyCode(btn) {
+  const pre = btn.closest('.code-block').querySelector('pre');
+  const text = pre.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copiado';
+    btn.style.background = '#a6e3a1';
+    btn.style.color = '#1e1e2e';
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.style.background = ''; btn.style.color = ''; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
