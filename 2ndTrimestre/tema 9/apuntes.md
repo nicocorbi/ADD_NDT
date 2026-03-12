@@ -224,3 +224,15 @@ Filtrar entre fechas
 Mostrar resultados en consola
 
 Ver datos en MongoDB Atlas
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 102303" src="https://github.com/user-attachments/assets/a4577f9d-b2b5-4a05-a3ea-63ea0242f267" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 100946" src="https://github.com/user-attachments/assets/85cbe4da-951a-4dd8-a99c-b103a22e25dc" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 100204" src="https://github.com/user-attachments/assets/931ebccb-7813-4633-9f69-d1da52d4e10d" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 095600" src="https://github.com/user-attachments/assets/58d76ba3-c7d8-4869-82c5-c07a562c8d43" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 095253" src="https://github.com/user-attachments/assets/69597a64-648b-4228-a649-ac7c481706a7" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 095104" src="https://github.com/user-attachments/assets/a425f7ad-aa61-4f7e-b012-75ca300d1ba7" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-12 100307" src="https://github.com/user-attachments/assets/3028e99f-37a5-4c0c-9476-e70aa2ce10f8" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-12 100300" src="https://github.com/user-attachments/assets/2a36bc05-6e53-476e-9d62-878bce195c65" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-12 095616" src="https://github.com/user-attachments/assets/939622c9-4ddb-405d-bf17-91da09de4976" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-12 095420" src="https://github.com/user-attachments/assets/db6958fc-8240-4c86-949a-c84583b64227" />
+<img width="1920" height="1200" alt="Captura de pantalla 2026-03-05 110032" src="https://github.com/user-attachments/assets/f77ec7f0-9254-47b8-b410-170d76af7de0" />
+
